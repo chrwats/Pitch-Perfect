@@ -24,6 +24,7 @@
 		838C18181B2321B20095EAB2 /* darthvader@2x-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 838C18161B2321B20095EAB2 /* darthvader@2x-iphone.png */; };
 		83EEF7271B253BEA00DEF6AD /* pause@2x-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 83EEF7261B253BEA00DEF6AD /* pause@2x-iphone.png */; };
 		83EEF7291B26764400DEF6AD /* echo@2x-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 83EEF7281B26764400DEF6AD /* echo@2x-iphone.png */; };
+		83EEF72B1B293EA800DEF6AD /* PitchPerfectAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83EEF72A1B293EA800DEF6AD /* PitchPerfectAppIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		838C18161B2321B20095EAB2 /* darthvader@2x-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "darthvader@2x-iphone.png"; sourceTree = "<group>"; };
 		83EEF7261B253BEA00DEF6AD /* pause@2x-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause@2x-iphone.png"; sourceTree = "<group>"; };
 		83EEF7281B26764400DEF6AD /* echo@2x-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "echo@2x-iphone.png"; sourceTree = "<group>"; };
+		83EEF72A1B293EA800DEF6AD /* PitchPerfectAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PitchPerfectAppIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		838C17E51B1F4D5E0095EAB2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				83EEF72A1B293EA800DEF6AD /* PitchPerfectAppIcon.png */,
 				83EEF7281B26764400DEF6AD /* echo@2x-iphone.png */,
 				83EEF7261B253BEA00DEF6AD /* pause@2x-iphone.png */,
 				838C18151B2321B20095EAB2 /* chipmunk@2x-iphone.png */,
@@ -228,6 +231,7 @@
 			files = (
 				838C18171B2321B20095EAB2 /* chipmunk@2x-iphone.png in Resources */,
 				838C180A1B1F5C790095EAB2 /* microphone-iphone.png in Resources */,
+				83EEF72B1B293EA800DEF6AD /* PitchPerfectAppIcon.png in Resources */,
 				838C180B1B1F5C790095EAB2 /* microphone@2x-iphone.png in Resources */,
 				838C18121B209D330095EAB2 /* movie_quote.mp3 in Resources */,
 				838C17ED1B1F4D5E0095EAB2 /* Main.storyboard in Resources */,

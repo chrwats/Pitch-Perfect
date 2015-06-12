@@ -30,19 +30,14 @@ class PlaySoundsViewController: UIViewController {
     }
         // Plays sound slowly(snail icon) on recordSoundsViewController
     @IBAction func playSlowSound(sender: UIButton) {
-        audioPLayer.stop()
-        audioPLayer.currentTime = 0.0
-        audioPLayer.rate = 0.5
-        audioPLayer.play()
+        playAudioWithVariableRate(0.5)
+
         
     }
     
         // Plays sound quickly(rabbit icon) on recordSoundsViewController
     @IBAction func playFastSound(sender: UIButton) {
-        audioPLayer.stop()
-        audioPLayer.currentTime = 0.0
-        audioPLayer.rate = 1.5
-        audioPLayer.play()
+        playAudioWithVariableRate(1.5)
     }
     
         // Plays sound with a higher pitch(chipmunk icon) on recordSoundsViewController
@@ -79,6 +74,13 @@ class PlaySoundsViewController: UIViewController {
         audioPlayerNode.play()
     
     }
+    
+    func playAudioWithVariableRate(rate:Float){
+        audioReset()
+        audioPLayer.currentTime = 0.0
+        audioPLayer.rate = rate
+        audioPLayer.play()
+    }
 
     // Play sound with reverb added
     @IBAction func playReverb(sender: UIButton) {
@@ -92,7 +94,6 @@ class PlaySoundsViewController: UIViewController {
         var reverbNode = AVAudioUnitReverb()
         reverbNode.loadFactoryPreset( AVAudioUnitReverbPreset.Cathedral)
         reverbNode.wetDryMix = 60
-        audioEngine.stop()
         // Attach the audio effect node corresponding to the user selected effect
         audioEngine.attachNode(reverbNode)
         

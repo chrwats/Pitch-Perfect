@@ -19,18 +19,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     var audioRecorder:AVAudioRecorder!
     var recordedAudio:RecordedAudio!
     var recPaused: Bool! = false
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         stopButton.hidden = true
         recordingInProgress.hidden = true
         recordButton.enabled = true
@@ -47,6 +38,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         stopButton.hidden = false
         beginRecordingButton.hidden = true
         pauseButton.hidden = false
+        println("in RecordAudio")
 
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
         
@@ -80,32 +72,27 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBAction func PauseRecording(sender: UIButton) {
         if (!recPaused){
-        audioRecorder.pause()
-        // TODO:change rec. in progress label to paused
-        recordingInProgress.text = "Paused"
+            audioRecorder.pause()
+            recordingInProgress.text = "Paused"
             recPaused = true
         }else {
-         audioRecorder.record()
+            audioRecorder.record()
             recordingInProgress.text = "Recording In Progress"
             recPaused = false
         }
     }
     
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
-        if (flag)   {
-            
-        //Save the recorded Audio
-        recordedAudio=RecordedAudio()
-        recordedAudio.filePathUrl = recorder.url
-        recordedAudio.title = recorder.url.lastPathComponent
-        
+            if (flag)   {
+            //Save the recorded Audio
+                var recordedAudio = RecordedAudio(filePathUrl: recorder.url, title: recorder.url.lastPathComponent!)
         //Move to the next scene - seque
-        self.performSegueWithIdentifier("StopRecordingSeque", sender: recordedAudio)
-        }
-        else{
-            recordButton.enabled = true
-            stopButton.hidden = true
-        }
+                self.performSegueWithIdentifier("StopRecordingSeque", sender: recordedAudio)
+            }else{
+                println("Recording was not successful")
+                recordButton.enabled = true
+                stopButton.hidden = true
+            }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
